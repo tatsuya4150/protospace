@@ -7,4 +7,8 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up).push(:name, :avatar, :member, :profile, :works)
   end
+
+  def after_sign_out_path_for(resource)
+    '/users/sign_in'
+  end
 end
