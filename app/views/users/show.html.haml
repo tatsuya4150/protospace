@@ -8,20 +8,20 @@
         %h4#top-aligned-media.media-heading
           Top aligned media
           %span.label.label-default.project-number
-            = current_user.member
+            = 0
             %i Projects
         .proto-user
           %span.degree
-            = current_user.works
+            = @user.works
         .row
           .col-md-6
             %h4 Profile
             %p
-              = current_user.profile
+              = @user.profile
           .col-md-6
             %h4 Works
             %p
-              = current_user.works
+              = @user.works
 .container.proto-list
   .row
     .col-sm-4.col-md-3.proto-content
