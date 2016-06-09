@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to root_path, notice: '編集完了しました'
+    redirect_to root_path, notice: "編集完了しました"
   end
 
   private
