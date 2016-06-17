@@ -1,5 +1,5 @@
 .container.proto-new
-  = form_for(@product) do |f|
+  = form_for @prototype do |f|
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
         .col-md-12
@@ -9,24 +9,23 @@
           .cover-image-upload
             =f.fields_for :images do |image_form|
               = image_form.file_field :image
-              = image_form.hidden_field :type, value: :main
+              = image_form.hidden_field :role, value: :main
         .col-md-12
           %ul.proto-sub-list.list-group
             - 2.times do
               %li.list-group-item.col-md-4
                 .image-upload
-                  = image_form.file_field :image
-                  = image_form.hidden_field :type, value: :sub
+                  = f.fields_for :images do |image_form|
+                    = image_form.file_field :image
+                    = image_form.hidden_field :role, value: :sub
             %li.list-group-item.col-md-4
               .image-upload-plus
                 %span +
       .row.proto-description
         .col-md-12
           = f.text_field :catch_copy, placeholder: "Catch Copy"
-          %input{type: "text", placeholder: "Catch Copy"}/
         .col-md-12
           = f.text_area :concept, cols: "30", rows: "4", placeholder: "Concept"
-          %textarea{name: "", cols: "30", rows: "4", placeholder: "Concept"}
         .col-md-12
           %h4 Tag List
           .row
