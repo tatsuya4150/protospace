@@ -8,7 +8,6 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    binding.pry
     @prototype = Prototype.new(prototype_params)
     if @prototype.save
       redirect_to root_path, notice: '投稿完了しました'
