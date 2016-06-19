@@ -11,3 +11,11 @@
 /log/*
 !/log/.keep
 /tmp
+
+/test
+
+/public/uploads/
+*.png
+*.jpeg
+*.jpg
+*.gif
