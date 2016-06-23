@@ -12,7 +12,7 @@ class PrototypesController < ApplicationController
     if @prototype.save
       redirect_to root_path, notice: '投稿完了しました'
     else
-      render :new
+      render :new, alert: '投稿失敗しました。'
     end
   end
 
