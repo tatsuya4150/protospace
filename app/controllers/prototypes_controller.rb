@@ -12,7 +12,8 @@ class PrototypesController < ApplicationController
     if @prototype.save
       redirect_to root_path, notice: '投稿完了しました'
     else
-      render :new, alert: '投稿失敗しました。'
+      flash.now[:notice] = "投稿失敗しました"
+      render :new
     end
   end
 
