@@ -1,5 +1,5 @@
 .container.proto-new
-  - if @prototype.error.any?
+  - if @prototype.errors.any?
     - @prototype.errors.full_messages.each do |message|
       = message
   = form_for @prototype do |f|
