@@ -3,3 +3,4 @@ class Image < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   enum role: %i(main sub)
 end
+
