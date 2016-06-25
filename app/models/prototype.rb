@@ -5,3 +5,4 @@ class Prototype < ActiveRecord::Base
 
   validates :catch_copy, :concept, :title, presence: true
 end
+
