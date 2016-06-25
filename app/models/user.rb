@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :authentication_keys => [:email]
 
-validates :name, presence: true
+  validates :name, presence: true
 
+  mount_uploader :avatar, AvatarUploader
 end
+
