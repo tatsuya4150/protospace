@@ -1,5 +1,6 @@
 class PrototypesController < ApplicationController
   def index
+    @prototypes = Prototype.includes(:user)
   end
 
   def new
@@ -24,7 +25,7 @@ class PrototypesController < ApplicationController
       :catch_copy,
       :concept,
       images_attributes: [:id, :image, :role, :prototype_id]
-      )
+      ).merge(user_id: current_user.id)
   end
 end
 
