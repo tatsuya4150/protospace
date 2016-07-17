@@ -8,5 +8,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
 
   mount_uploader :avatar, AvatarUploader
+
+  has_many :prototypes
 end
 
