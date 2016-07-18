@@ -12,26 +12,8 @@
           %a{href: "#"} Newest PROTO
       %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
 
-.container.proto-list
-  .row
-    - @prototypes.each do |prototype|
-      .col-sm-4.col-md-3.proto-content
-        .thumbnail
-          = link_to image_tag(prototype.images.main.first.image), prototype_path(prototype)
+  = render partial: 'layouts/prototypes', locals: { prototypes: @prototypes }
 
-          .caption
-            %h3
-              = prototype.title
-            .proto-meta
-              .proto-user
-                = link_to "by_#{prototype.user.name}", prototype_path(prototype)
-              .proto-posted
-                Apr 26
-            %ul.proto-tag-list.list-inline
-              %li
-                %a{href: "#", class: "btn btn-default"} iPad
-              %li
-                = link_to 'wireframe', prototype_path(prototype), {class: "btn btn-default"}
 .text-center
   %ul.pagination
     %li.disabled
