@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20160718130628) do
     t.integer  "user_id",     limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "likes_count", limit: 4
+    t.integer  "likes_count", limit: 4,     default: 0
   end
 
   create_table "users", force: :cascade do |t|
