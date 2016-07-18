@@ -1,0 +1,19 @@
+.container.proto-list
+  .row
+    - @prototypes.each do |prototype|
+      .col-sm-4.col-md-3.proto-content
+        .thumbnail
+          = link_to image_tag(prototype.images.main.first.image), prototype_path(prototype)
+          .caption
+            %h3
+              = prototype.title
+            .proto-meta
+              .proto-user
+                = link_to "by_#{prototype.user.name}", user_path(prototype)
+              .proto-posted
+                Apr 26
+            %ul.proto-tag-list.list-inline
+              %li
+                = link_to 'iPad', "#" , {class: "btn btn-default"}
+              %li
+                = link_to 'wireframe', "#" , {class: "btn btn-default"}
