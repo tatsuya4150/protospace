@@ -3,7 +3,7 @@ class CreateImages < ActiveRecord::Migration
     create_table :images do |t|
       t.text    :image
       t.integer :role, default: 1
-      t.integer :prototype_id
+      t.references :prototype, index: true, foreign_key: true
       t.timestamps
     end
   end
