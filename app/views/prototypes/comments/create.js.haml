@@ -1,0 +1,4 @@
+:plain
+  $('#js-text-area').val('')
+  $('#js-render-comments').html("#{ j(render partial: 'prototypes/comment', collection: @comments)}");
+  $('#js-comment-counts').html("(#{ @comments.count})" )
