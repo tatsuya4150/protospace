@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :prototypes, only: [:index, :new, :show, :create]  do
     scope module: :prototypes do
       resources :likes, only: [:create, :destroy]
+      resources :comments, only: [:create]
     end
   end
 end
