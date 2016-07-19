@@ -51,15 +51,13 @@
         = "(#{@comments.count})"
     .col-md-8#js-render-comments
       = render partial: "comment", collection: @comments
+    = form_for [@prototype, @comment], class: 'form-inline', remote: true do |f|
+      %h4.col-md-12 Write a comment
+      .row
+        .form-group.col-md-10
+          = f.text_area :text, placeholder: "Your comments", rows: "3", class: "form-control", id: 'js-text-area'
 
-      = form_for [@prototype, @comment], class: 'form-inline', remote: true do |f|
-
-        %h4 Write a comment
-        .row
-          .form-group.col-md-10
-            = f.text_area :text, placeholder: "Your comments", rows: "3", class: "form-control", id: 'js-text-area'
-
-          .form-group.col-md-2
-            = f.submit 'Comment', class: 'btn btn-primary'
+        .form-group.col-md-2
+          = f.submit 'Comment', class: 'btn btn-primary'
 
 
