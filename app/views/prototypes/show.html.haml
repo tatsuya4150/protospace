@@ -47,8 +47,9 @@
   .row.proto-comments
     %h4.col-md-12
       Comments
-      %span.num (10)
-    .col-md-8
+      %span.num#js-comment-counts
+        = "(#{@comments.count})"
+    .col-md-8#js-render-comments
       = render partial: "comment", collection: @comments
 
       = form_for [@prototype, @comment], class: 'form-inline', remote: true do |f|
