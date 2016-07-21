@@ -3,7 +3,7 @@ class PrototypesController < ApplicationController
   before_action :set_prototype, except: [:index, :new, :create]
 
   def index
-    @prototypes = Prototype.includes(:user)
+    @prototypes = Prototype.includes(:user).order('created_at DESC')
   end
 
   def show

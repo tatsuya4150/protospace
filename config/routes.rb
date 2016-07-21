@@ -10,4 +10,9 @@ Rails.application.routes.draw do
       resources :comments, only: [:create]
     end
   end
+
+  scope module: :prototypes do
+    resources :popular, only: :index
+  end
+
 end
