@@ -1,0 +1,26 @@
+.thumbnail{
+  .btn-tag{
+    width: 100%;
+    height: 50px;
+    border-radius: 2px;
+    background-color: #eee;
+    font-family: Lato, 'Helvetica Neue', 'Helvetica, Arial', sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #999;
+    padding: 5px 5px 3px;
+
+    &:hover{
+      color: #333;
+      transition: 0.2;
+    }
+  }
+}
+
+.tag-list-number{
+  display: block;
+  font-size: 1.3rem;
+  border-radius: 2px;
+  margin: 0 -2px 2px;
+}
+
