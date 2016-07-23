@@ -39,7 +39,7 @@ class PrototypesController < ApplicationController
       :catch_copy,
       :concept,
       images_attributes: [:id, :image, :role, :prototype_id]
-      ).merge(user_id: current_user.id,  tag_list: params[:prototype][:tag])
+      ).merge(user_id: current_user.id, tag_list: params[:prototype][:tag])
   end
 end
 
