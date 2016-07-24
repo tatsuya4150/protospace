@@ -10,4 +10,4 @@
           = link_to "Popular PROTO", popular_index_path
         %li{class: is_active?('prototypes'), role: "presentation"}
           = link_to "Newest PROTO", root_path
-      %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
+      = link_to 'View Tags', tags_path, type: "button", class: "btn btn-default col-lg-1"

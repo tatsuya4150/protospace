@@ -13,7 +13,7 @@
               .proto-posted
                 Apr 26
             %ul.proto-tag-list.list-inline
-              %li
-                = link_to 'iPad', "#" , {class: "btn btn-default"}
-              %li
-                = link_to 'wireframe', "#" , {class: "btn btn-default"}
+              - prototype.tags.each do |proto|
+                %li
+                  = link_to proto.name, tag_path(proto) , {class: "btn btn-default"}
+

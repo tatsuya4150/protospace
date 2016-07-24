@@ -3,7 +3,7 @@ class PrototypesController < ApplicationController
   before_action :set_prototype, except: [:index, :new, :create]
 
   def index
-    @prototypes = Prototype.includes(:user).order('created_at DESC')
+    @prototypes = Prototype.includes(:user, :tags).order('created_at DESC')
   end
 
   def show
@@ -39,7 +39,7 @@ class PrototypesController < ApplicationController
       :catch_copy,
       :concept,
       images_attributes: [:id, :image, :role, :prototype_id]
-      ).merge(user_id: current_user.id)
+      ).merge(user_id: current_user.id, tag_list: params[:prototype][:tag])
   end
 end
 

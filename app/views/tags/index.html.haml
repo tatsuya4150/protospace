@@ -1,0 +1,10 @@
+= render partial: 'layouts/mainboad'
+.container.proto-list
+  .row
+    - @tags.each do |tag|
+      -if tag.taggings_count >= 1
+        .col-sm-4.col-md-3.proto-content
+          .thumbnail
+            = link_to tag.name, tag_path(tag.id), class: 'btn btn-tag'
+            .tag-meta
+              = link_to "#{tag.taggings_count}Projects", tag_path(tag.id), class:'label label-default tag-list-number'

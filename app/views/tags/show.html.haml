@@ -1,0 +1,10 @@
+= render partial: 'layouts/mainboad'
+.container.proto-list
+  .row
+    -if @tag.taggings_count >= 1
+      .col-sm-12.col-md-11.proto-content
+        .thumbnail
+          = link_to @tag.name, tag_path(@tag.id), class: 'btn btn-tag'
+          .tag-meta
+            = link_to "#{@tag.taggings_count}Projects", tag_path(@tag.id), class:'label label-default tag-list-number'
+= render partial: 'layouts/prototypes', locals: { prototypes: @prototypes }

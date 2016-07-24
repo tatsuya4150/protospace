@@ -6,6 +6,8 @@ class Prototype < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :images, reject_if: proc { |attributes| attributes['image'].blank? }
 
+  acts_as_taggable
+
 #validates
   validates :catch_copy, :concept, :title, presence: true
 
