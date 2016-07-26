@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_prototype, except: [:index, :new, :create]
 
   def index
@@ -9,7 +9,7 @@ class PrototypesController < ApplicationController
   def show
     @images = @prototype.images
     @user = @prototype.user
-    @comments = @prototype.comments.includes(:prototype)
+    @comments = @prototype.comments.includes(:user)
     @comment = @prototype.comments.new(prototype_id: @prototype.id) if user_signed_in?
   end
 
@@ -25,6 +25,29 @@ class PrototypesController < ApplicationController
     else
       flash.now[:alert] = "投稿失敗しました"
       render :new
+    end
+  end
+
+  def edit
+    @sub_images = @prototype.images.sub[0]
+  end
+
+  def update
+    if @prototype.update(prototype_params)
+      redirect_to root_path, notice: '編集完了しました。'
+    else
+      flash.now[:alert] = "編集失敗しました。"
+      render :edit
+    end
+  end
+
+  def destroy
+    if @prototype.user_id == current_user.id
+      @prototype.destroy
+      redirect_to root_path, notice: '削除完了しました。'
+    else
+      flash.now[:alert] = "削除失敗しました。"
+      render :show
     end
   end
 

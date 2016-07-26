@@ -10,17 +10,17 @@
       .row
         .col-md-12
           .cover-image-upload.js-preview-images
-            =f.fields_for :images do |image_form|
-              = image_form.file_field :image
-              = image_form.hidden_field :role, value: :main
+            =f.fields_for :images, @prototype.images.main[0] do |i|
+              = i.file_field :image
+              = i.hidden_field :role, value: :main
         .col-md-12
           %ul.proto-sub-list.list-group
             - 2.times do
               %li.list-group-item.col-md-4
                 .image-upload.js-preview-images
-                  = f.fields_for :images do |image_form|
-                    = image_form.file_field :image
-                    = image_form.hidden_field :role, value: :sub
+                  = f.fields_for :images, @sub_images do |i|
+                    = i.file_field :image
+                    = i.hidden_field :role, value: :sub
             %li.list-group-item.col-md-4
               .image-upload-plus
                 %span +
