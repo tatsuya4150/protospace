@@ -1,0 +1,40 @@
+.container.proto-new
+  - if @prototype.errors.any?
+    - @prototype.errors.full_messages.each do |message|
+      = message
+  = form_for @prototype do |f|
+    .col-md-8.col-md-offset-2
+      %header.row.user-nav.row
+        .col-md-12
+          = f.text_field :title, placeholder: "Title", class: "proto-new-title"
+      .row
+        .col-md-12
+          .cover-image-upload.js-preview-images
+            =f.fields_for :images, @prototype.images.main[0] do |i|
+              = i.file_field :image
+              = i.hidden_field :role, value: :main
+        .col-md-12
+          %ul.proto-sub-list.list-group
+            - 2.times do
+              %li.list-group-item.col-md-4
+                .image-upload.js-preview-images
+                  = f.fields_for :images, @sub_images do |i|
+                    = i.file_field :image
+                    = i.hidden_field :role, value: :sub
+            %li.list-group-item.col-md-4
+              .image-upload-plus
+                %span +
+      .row.proto-description
+        .col-md-12
+          = f.text_field :catch_copy, placeholder: "Catch Copy"
+        .col-md-12
+          = f.text_area :concept, cols: "30", rows: "4", placeholder: "Concept"
+        .col-md-12
+          %h4 Tag List
+          .row
+            - 3.times do
+              .col-md-4
+                = text_field_tag "prototype[tag][]", "", placeholder: "Val"
+      .row.text-center.proto-btn
+        = f.submit "Publish", class: "btn btn-lg btn-primary btn-block", data: { disable_with: "Sending now..." }
+
