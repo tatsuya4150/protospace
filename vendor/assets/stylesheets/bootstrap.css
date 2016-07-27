@@ -4716,6 +4716,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   padding-left: 0;
   margin: 20px 0;
   border-radius: 4px;
+  display: table;
+  margin: 0 auto;
 }
 .pagination > li {
   display: inline;
@@ -5029,7 +5031,7 @@ a.thumbnail.active {
 }
 .alert {
   padding: 15px;
-  margin-bottom: 20px;
+
   border: 1px solid transparent;
   border-radius: 4px;
 }
