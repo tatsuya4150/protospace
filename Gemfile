@@ -32,18 +32,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
-  gem 'faker'
+group :development, :test do 
+  gem "rspec-rails"
+  gem "factory_girl_rails"
+  gem "faker"
 end
 
 group :test do
   gem "capybara"
   gem "database_cleaner"
-  gem "faker"
+  gem "launchy"
+  gem "poltergeist"
 end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
