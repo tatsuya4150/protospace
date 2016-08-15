@@ -67,9 +67,10 @@ describe Prototype do
 
     describe 'when not liked by a user' do
       it 'returns nill' do
-      user = create(:user, name: 'aaa')
-      like = create(:like, user_id: '')
-      expect(Like.find_by(user_id: user.id)).to be_falsey
+        user = create(:user, name: 'aaa')
+        like = create(:like, user_id: '')
+        expect(Like.find_by(user_id: user.id)).to be_falsey
+      end
     end
   end
 
