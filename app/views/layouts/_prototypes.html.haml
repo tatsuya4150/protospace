@@ -27,4 +27,5 @@
             - prototype.tags.each do |proto|
               %li
                 = link_to proto.name, tag_path(proto) , {class: "btn btn-default"}
-= paginate(@prototypes)
+.text-center
+  = paginate(prototypes)
