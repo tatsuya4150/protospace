@@ -43,6 +43,7 @@ group :test do
   gem "database_cleaner"
   gem "launchy"
   gem "poltergeist"
+
 end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
